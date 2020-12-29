@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var dataBJ = [
+    [20.51,33.78,32.06,41.73,34.41,34.31,31.25],//分渠道退款金额
+    [194.098,328.23,623.475,288.653,387.489,868.322,264.339],//分渠道成交金额
+    [313.1,301.1,321.1,321.4,300.7,280.8,320.4,284.2],//分渠道客单价
+    [867.6,1466.6,3441.7,1583.9,4514.7,1790.7,0],//分渠道访客获取成本
+    [136,127.5,126,120,136,128,126.9],//分渠道平均发货时间
+    [434,426,422,435,425,428,0],//分渠道页面访问时长
+    [50,80,130,80,160,100,0],//分渠道人均页面访问数
+    [132,110,109,124,120,31,0],//分渠道跳出率
+    [78,148,262,127,186,376,128],//分渠道总订单数量
+    [270,710,1100,650,840,1770,590],//分渠道退款总订单量
+    [429.7,953.6,1560.8,8286,1151.3,2366,813.5],//分渠道下单支付时长
+    [48.72,41.89,30.15,44.09,30.65,26.33,46.09],//分渠道下单支付买家转化率
+];
+
+var lineStyle = {
+    normal: {
+        width: 1,
+        opacity: 0.5
+    }
+};
+
+option = {
+    //backgroundColor: '#161627',
+    title: {
+        text: '分渠道相关内容分析',
+        left: 'center',
+        textStyle: {
+            color: '#eee'
+        }
+    },
+    legend: {
+        bottom: 5,
+        data: ['分渠道信息统计'],
+        itemGap: 20,
+        textStyle: {
+            color: '#fff',
+            fontSize: 14
+        },
+        selectedMode: 'single'
+    },
+    radar: {
+        indicator: [
+            {name: '淘宝搜索', max: 1500},
+            {name: '淘宝橱窗', max: 1500},
+            {name: '淘宝直播', max: 8000},
+            {name: '淘宝社区', max: 9000},
+            {name: '直通车', max: 5000},
+            {name: '聚划算', max: 5000},
+            {name: '阿里博客',max:3000}
+        ],
+        shape: 'circle',
+        splitNumber: 5,
+        name: {
+            textStyle: {
+                color: 'rgb(238, 197, 102)'
+            }
+        },
+        splitLine: {
+            lineStyle: {
+                color: [
+                    'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                    'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                    'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                ].reverse()
+            }
+        },
+        splitArea: {
+            show: false
+        },
+        axisLine: {
+            lineStyle: {
+                color: 'rgba(238, 197, 102, 0.5)'
+            }
+        }
+    },
+    series: [
+        {
+            name: '分渠道信息统计',
+            type: 'radar',
+            lineStyle: lineStyle,
+            data: dataBJ,
+            symbol: 'none',
+            itemStyle: {
+                color: '#F9713C'
+            },
+            areaStyle: {
+                opacity: 0.1
+            }
+        },
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

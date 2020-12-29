@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <title>电商大数据项目可视化展示</title>
+    <link rel="stylesheet" href="src/assets/css/app.css"/>
+    <link rel="stylesheet" href="src/assets/css/dataset.css"/>
+</head>
+
+<body>
+<div class="header">
+    <h1 class="header-title">阿里云电商平台大数据展示</h1>
+    <div id="logInfo"></div>
+</div>
+<div class="wrapper">
+    <div class="content">
+        <div class="col col-l">
+            <div class="panel-wrapper panel-wrapper-55">
+                <div class="panel panel-l-t">
+                    <div class="title">项目概况</div>
+                    <div class="b_content">
+                        <ul>
+                            <li class="leftRT">项目名称：</li>
+                            <li class="rightRT">电商平台大数据</li>
+                            <li class="leftRT">项目团队：</li>
+                            <li class="rightRT">ApachePig</li>
+                            <li class="leftRT">项目人数：</li>
+                            <li class="rightRT">3人</li>
+                            <li class="leftRT">项目人员：</li>
+                            <li class="rightRT">巫柔颖 刁泓好 宋佳琪</li>
+                            <li class="leftRT">团队理念：</li>
+                            <li class="rightRT">健康积极向上</li>
+                            <li class="leftRT">项目使用工具技术：</li>
+                            <li class="rightRT">ECharts Hive MapReduce等</li>
+                            <li class="leftRT">项目开始时间：</li>
+                            <li class="rightRT">2020-12-24</li>
+                            <li class="leftRT">项目完成时间：</li>
+                            <li class="rightRT">2020-12-27</li>
+                            <li class="leftRT">项目介绍：</li>
+                            <li class="rightRT">为了推动电商行业发展，对电商平台相关数据进行采集分析从而为电商行业发展提出建议</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-wrapper panel-wrapper-45">
+                <div class="panel panel-l-b">
+                    <div class="title">分渠道相关统计情况</div>
+                    <div id="ryCharts" class="b_content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-c">
+            <div class="panel-wrapper panel-wrapper-55">
+                <div class="panel panel-c-b">
+                    <div class="title title-long" style="padding-left:25px">24小时相关访问数</div>
+                    <div id="gCharts" class="b_content" style="height:92%;"></div>
+                </div>
+            </div>
+            <div class="panel-wrapper panel-wrapper-45">
+                <div class="panel panel-c-b">
+                    <div class="title title-long" style="padding-left:25px">出版社销售排名</div>
+                    <div id="container" class="b_content" style="height:85%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-r">
+            <div class="panel-wrapper panel-wrapper-25">
+                <div class="panel panel-r-t">
+                    <div class="title">分析数据集</div>
+                    <div id="jqCharts" class="b_content">
+                        <a href="static/dataSet/24小时独立访客数.csv" target="_blank">24小时独立访客数</a>
+                        <a href="static/dataSet/24小时页面访问数.csv" target="_blank">24小时页面访问数</a>
+                        <a href="static/dataSet/出版社毛利率排行前十名.csv" target="_blank">出版社毛利率</a>
+                        <a href="static/dataSet/出版社销售额前十名.csv" target="_blank">出版社销售额</a>
+                        <a href="static/dataSet/分渠道成交金额.csv" target="_blank">分渠道成交金额</a>
+                        <a href="static/dataSet/分渠道访客获取成本.csv" target="_blank">分渠道访客获取成本</a>
+                        <a href="static/dataSet/分渠道客单价.csv" target="_blank">分渠道客单价</a>
+                        <a href="static/dataSet/分渠道平均发货时间.csv" target="_blank">分渠道平均发货时间</a>
+                        <a href="static/dataSet/分渠道人均页面访问数.csv" target="_blank">分渠道人均页面访问数</a>
+                        <a href="static/dataSet/分渠道跳出率.csv" target="_blank">分渠道跳出率</a>
+                        <a href="static/dataSet/分渠道退款金额.csv" target="_blank">分渠道退款金额</a>
+                        <a href="static/dataSet/分渠道退款总订单量.csv" target="_blank">分渠道退款总订单量</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-wrapper panel-wrapper-25">
+                <div class="panel panel-r-m">
+                    <div class="title">分析数据集</div>
+                    <div id="wzCharts" class="b_content">
+                        <a href="static/dataSet/分渠道下单支付买家转化率.csv" target="_blank">分渠道下单支付买家转化率</a>
+                        <a href="static/dataSet/分渠道下单支付时长.csv" target="_blank">分渠道下单支付时长</a>
+                        <a href="static/dataSet/分渠道页面访问时长.csv" target="_blank">分渠道下单支付时长</a>
+                        <a href="static/dataSet/分渠道总订单数量.csv" target="_blank">分渠道总订单数量</a>
+                        <a href="static/dataSet/人均页面访问数.csv" target="_blank">人均页面访问数</a>
+                        <a href="static/dataSet/卖家店铺SKU.csv" target="_blank">卖家店铺SKU</a>
+                        <a href="static/dataSet/书籍出版年份数量前十名.csv" target="_blank">书籍出版年份数量</a>
+                        <a href="static/dataSet/退款原因排行.csv" target="_blank">退款原因排行</a>
+                        <a href="static/dataSet/退款原因占比.csv" target="_blank">退款原因占比</a>
+                        <a style="color:grey; font-size:small;">&nbsp;&nbsp;&nbsp;点击想要查看的数据集即可查看该数据内容</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-wrapper panel-wrapper-45">
+                <div class="panel panel-r-b">
+                    <div class="title">退款原因及占比</div>
+                    <div id="wlCharts" class="b_content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="src/assets/js/echarts.js"></script>
+<script type="text/javascript" src="src/js/time.js"></script>
+<script type="text/javascript" src="src/js/chartSet.js"></script>
+</html>
